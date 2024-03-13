@@ -1,0 +1,23 @@
+package edu.kh.jdbc1;
+
+public class JDBCExample1 {
+
+	public static void main(String[] args) {
+		
+		// JDBC(Java DataBase Connectivity) : Java에서 DB에 연결할 수 있게 해주는 Java Programming API (Java에 기본 내장된 인터페이스)
+		// Java.sql 패키지에서 제공 
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+	
+	
+}

@@ -1,0 +1,9 @@
+package edu.kh.jdbc1.model.vo;
+
+public class Emp { // DB에서 조회된 사원 한 명(1행)의 정보를 저장하는 객체
+	private String empName;
+	private String deptTitle;
+	private int salary;
+	
+	
+}
