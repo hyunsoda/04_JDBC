@@ -2,6 +2,7 @@ package edu.kh.emp.model.service;
 
 import java.sql.Connection;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 
 import static edu.kh.emp.common.JDBCTemplate.*;
@@ -126,11 +127,11 @@ public class EmployeeService {
 	}
 
 
-	public HashMap<String, Integer> selectDeptTotalSalary() throws Exception {
+	public LinkedHashMap<String, Integer> selectDeptTotalSalary() throws Exception {
 
 		Connection conn = getConnection();
 		
-		HashMap<String, Integer> deptMap = dao.selectDeptTotalSalary(conn);
+		LinkedHashMap<String, Integer> deptMap = dao.selectDeptTotalSalary(conn);
 		
 		close(conn);
 		
@@ -151,11 +152,11 @@ public class EmployeeService {
 	}
 
 
-	public HashMap<String, Double> selectJobAvgSalary() throws Exception{
+	public LinkedHashMap<String, Double> selectJobAvgSalary() throws Exception{
 		
 		Connection conn = getConnection();
 		
-		HashMap<String, Double> salAvgMap = dao.selectJobAvgSalary(conn);
+		LinkedHashMap<String, Double> salAvgMap = dao.selectJobAvgSalary(conn);
 		
 		close(conn);
 		

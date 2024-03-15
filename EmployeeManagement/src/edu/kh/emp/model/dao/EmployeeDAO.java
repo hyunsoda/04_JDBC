@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Properties;
 
@@ -330,9 +331,9 @@ public class EmployeeDAO {
 
 
 
-	public HashMap<String, Integer> selectDeptTotalSalary(Connection conn) throws Exception{
+	public LinkedHashMap<String, Integer> selectDeptTotalSalary(Connection conn) throws Exception{
 		
-		HashMap<String, Integer> deptMap = new HashMap<String, Integer>();
+		LinkedHashMap<String, Integer> deptMap = new LinkedHashMap<String, Integer>();
 		
 		try {
 			
@@ -397,9 +398,9 @@ public class EmployeeDAO {
 
 
 
-	public HashMap<String, Double> selectJobAvgSalary(Connection conn) throws SQLException {
+	public LinkedHashMap<String, Double> selectJobAvgSalary(Connection conn) throws SQLException {
 		
-		HashMap<String, Double> salAvgMap = new HashMap<String, Double>();
+		LinkedHashMap<String, Double> salAvgMap = new LinkedHashMap<String, Double>();
 		
 		try {
 			String sql = prop.getProperty("selectJobAvgSalary");
@@ -409,7 +410,7 @@ public class EmployeeDAO {
 			
 			while(rs.next()) {
 				String jobName = rs.getString("JOB_NAME");
-				double salAvg = rs.getInt("SALARY");
+				double salAvg = rs.getDouble("SALARY");
 				
 				salAvgMap.put(jobName, salAvg);
 

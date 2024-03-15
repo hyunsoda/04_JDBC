@@ -3,6 +3,7 @@ package edu.kh.emp.view;
 import java.security.KeyStore.Entry;
 import java.util.HashMap;
 import java.util.InputMismatchException;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Scanner;
 import java.util.Set;
@@ -97,28 +98,6 @@ public class EmployeeView {
 	}
 
 	
-		// 보조 메서드
-		/** 전달받은 사원 List 모두 출력
-		 *
-		 */
-		public void printAll(List<Employee> empList) {
-			
-			if(empList.isEmpty()) {
-				System.out.println("조회된 사원 정보가 없습니다.");
-				
-			} else {
-				System.out.println("사번 |   이름  | 주민 등록 번호 |        이메일        |   전화 번호   | 부서 | 직책 | 급여" );
-				System.out.println("------------------------------------------------------------------------------------------------");
-				for(Employee emp : empList) {
-					System.out.printf(" %2d  | %4s | %s | %20s | %s | %s | %s | %d\n",
-							emp.getEmpId(), emp.getEmpName(), emp.getEmpNo(), emp.getEmail(),
-							emp.getPhone(), emp.getDepartmentTitle(), emp.getJobName(), emp.getSalary());
-				}
-			
-			}
-			
-			return;
-		}
 
 		
 		/**
@@ -286,7 +265,7 @@ public class EmployeeView {
 			
 			System.out.println("<부서별 급여 합 전체 조회>");
 			
-			HashMap<String, Integer> deptMap= service.selectDeptTotalSalary();
+			LinkedHashMap<String, Integer> deptMap= service.selectDeptTotalSalary();
 			
 			Set<String> set = deptMap.keySet();
 			for(String s : set){
@@ -315,9 +294,9 @@ public class EmployeeView {
 		
 		
 		public void selectJobAvgSalary() throws Exception{
-			System.out.println("직급별 급여 평균 조회");
+			System.out.println("<직급별 급여 평균 조회>");
 			
-			HashMap<String, Double> salAvgMap = service.selectJobAvgSalary();
+			LinkedHashMap<String, Double> salAvgMap = service.selectJobAvgSalary();
 			
 			Set<String> set = salAvgMap.keySet();
 			for(String s : set) {
@@ -346,6 +325,29 @@ public class EmployeeView {
 			}
 		}
 		
+		
+		// 보조 메서드
+		/** 전달받은 사원 List 모두 출력
+		 *
+		 */
+		public void printAll(List<Employee> empList) {
+			
+			if(empList.isEmpty()) {
+				System.out.println("조회된 사원 정보가 없습니다.");
+				
+			} else {
+				System.out.println("사번 |   이름  | 주민 등록 번호 |        이메일        |   전화 번호   | 부서 | 직책 | 급여" );
+				System.out.println("------------------------------------------------------------------------------------------------");
+				for(Employee emp : empList) {
+					System.out.printf(" %2d  | %4s | %s | %20s | %s | %s | %s | %d\n",
+							emp.getEmpId(), emp.getEmpName(), emp.getEmpNo(), emp.getEmail(),
+							emp.getPhone(), emp.getDepartmentTitle(), emp.getJobName(), emp.getSalary());
+				}
+			
+			}
+			
+			return;
+		}
 		
 		// 보조 메서드
 		/** 사번을 입력받아 반환하는 메서드
