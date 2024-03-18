@@ -184,7 +184,6 @@ public class MemberView {
 			e.printStackTrace();
 		}
 		
-		
 	}
 	
 	
