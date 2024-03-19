@@ -70,6 +70,10 @@ public class BoardService {
 			
 			}
 		}
+		// 7. 커넥션 반환
+		close(conn);
+		
+		// 8. 결과 반환
 		return board;
 	}
 	

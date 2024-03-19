@@ -130,11 +130,9 @@ public class MainView {
 		
 	}
 	
+	
 	/**
 	 * 회원가입
-	 */
-	/**
-	 * 
 	 */
 	public void signUp() {
 		System.out.println("\n[회원가입]\n");

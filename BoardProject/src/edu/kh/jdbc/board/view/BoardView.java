@@ -132,11 +132,26 @@ public class BoardView {
 			Board board = boardService.selectBoard(input, Session.loginMember.getMemberNo());
 										// 입력 받은 게시글 번호, 로그인한 회원 번호 (조회수 증가 사용)
 			
+			if(board == null) {
+				System.out.println("\n *** 해당 게시글이 존재하지 않습니다 *** \n");
+				return;
+			}
+			
+			System.out.println("--------------------------------------------------------");
+			System.out.printf("글번호 : %d \n제목 : %s\n", board.getBoardNo(), board.getBoardTitle());
+			System.out.printf("작성자 : %s | 작성일 : %s  \n조회수 : %d\n",
+					board.getMemberName(), board.getCreateDate(), board.getReadCount());
+			System.out.println("--------------------------------------------------------\n");
+			System.out.println(board.getBoardContent());
+			System.out.println("\n--------------------------------------------------------");
+
 			
 			
 		} catch (Exception e) {
+			
 			System.out.println("\n*** 게시글 상세 조회 중 예외 발생 ***\n");
 			e.printStackTrace();
+			
 		}
 		
 		
