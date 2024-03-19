@@ -85,4 +85,86 @@ public class BoardDAO {
 		return boardList;
 	}
 	
+	
+
+	/** 게시글 상세 조회 SQL 수행 DAO
+	 * @param conn
+	 * @param input
+	 * @return board
+	 */
+	public Board selectBoard(Connection conn, int input) throws Exception{
+
+		Board board = null;
+		
+		try {
+			
+			String sql = prop.getProperty("selectBoard");
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, input);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				// int boardNo = rs.getInt("BOARD_NO");
+				
+				board = new Board();
+				
+				board.setBoardNo(rs.getInt("BOARD_NO"));
+				board.setBoardTitle(rs.getString("BOARD_TITLE"));
+				board.setMemberName(rs.getString("MEMBER_NM"));
+				board.setReadCount(rs.getInt("READ_COUNT"));
+				board.setCreateDate(rs.getString("CREATE_DT"));
+				board.setBoardContent(rs.getString("BOARD_CONTENT"));
+				board.setMemberNo(rs.getInt("MEMBER_NO"));
+				
+			}
+			
+		} finally {
+			
+			close(rs);
+			close(pstmt);
+			
+		}
+		
+		return board;
+	}
+
+	
+	/** 조회수 증가 SQL 수행 DAO
+	 * @param conn
+	 * @param input
+	 * @return result
+	 */
+	public int updateReadCount(Connection conn, int input) throws Exception{
+		
+		int result = 0;
+		
+		try {
+			String sql = prop.getProperty("updateReadCount");
+
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, input);
+			
+			result = pstmt.executeUpdate();
+			
+			
+		} finally {
+			
+			close(pstmt);
+			
+		}
+		
+		return result;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

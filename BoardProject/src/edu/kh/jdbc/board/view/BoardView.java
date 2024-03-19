@@ -6,6 +6,7 @@ import java.util.Scanner;
 
 import edu.kh.jdbc.board.model.dto.Board;
 import edu.kh.jdbc.board.model.service.BoardService;
+import edu.kh.jdbc.common.Session;
 
 public class BoardView {
 
@@ -117,6 +118,26 @@ public class BoardView {
 		// -> 자신이 작성한 게시글일 경우
 		//	  수정 / 삭제 기능 노출
 		// + 댓글 목록 / 댓글 기능 추가 예정
+		
+		// 2) 번호가 일치하는 게시글이 없으면
+		// -> 해당 게시글이 존재하지 않습니다
+		
+		System.out.print("게시글 번호 입력 : ");
+		int input = sc.nextInt();
+		sc.nextLine();
+		
+		// 게시글 상세 조회 서비스 호출
+		try {
+			
+			Board board = boardService.selectBoard(input, Session.loginMember.getMemberNo());
+										// 입력 받은 게시글 번호, 로그인한 회원 번호 (조회수 증가 사용)
+			
+			
+			
+		} catch (Exception e) {
+			System.out.println("\n*** 게시글 상세 조회 중 예외 발생 ***\n");
+			e.printStackTrace();
+		}
 		
 		
 		

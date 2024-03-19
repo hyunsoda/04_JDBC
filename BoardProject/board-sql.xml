@@ -14,4 +14,22 @@
 		ORDER BY BOARD_NO DESC
 	</entry>
 
+	<!-- 게시글 상세 조회 -->
+	<entry key="selectBoard">
+		SELECT BOARD_NO, BOARD_TITLE, BOARD_CONTENT, MEMBER_NO, MEMBER_NM, 
+		READ_COUNT, CREATE_DT 
+		FROM BOARD
+		JOIN MEMBER USING (MEMBER_NO)
+		WHERE DELETE_FL = 'N'
+		AND BOARD_NO = ?
+	</entry>
+	
+	<!-- 조회수 증가 -->
+	<entry key="updateReadCount">
+		UPDATE BOARD SET
+		READ_COUNT = READ_COUNT + 1
+		WHERE BOARD_NO = ?
+	</entry>
+	
+	
 </properties>
