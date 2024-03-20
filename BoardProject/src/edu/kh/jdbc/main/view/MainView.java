@@ -126,8 +126,6 @@ public class MainView {
 			e.printStackTrace();
 		}
 		
-		
-		
 	}
 	
 	
