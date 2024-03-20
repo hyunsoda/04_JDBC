@@ -194,11 +194,8 @@ public class BoardView {
 					default : System.out.println("\n*** 잘못 입력 하셨습니다 ***\n");
 					}
 					
-					
 				}
 			}
-			
-			
 			
 		} catch (Exception e) {
 			
@@ -244,13 +241,17 @@ public class BoardView {
 			int result = boardService.updateBoard(boardTitle, sb.toString(), boardNo);
 			
 			if(result > 0) {
+				
 				System.out.println("\n=== 게시글이 수정 되었습니다 ===\n");
+				
 			} else {
+				
 				System.out.println("\n***수정 실패 ***\n");
 			}
 			
 			
 		} catch (Exception e) {
+			
 			System.out.println("\n**** 게시글 수정 중 예외 발생 ****\n");
 			e.printStackTrace();
 		}
