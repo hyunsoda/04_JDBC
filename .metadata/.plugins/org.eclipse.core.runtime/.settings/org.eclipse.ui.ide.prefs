@@ -1,6 +1,10 @@
 SHOW_PRODUCT_IN_TITLE=false
 SWITCH_PERSPECTIVE_ON_PROJECT_CREATION=never
 eclipse.preferences.version=1
+<<<<<<< HEAD
 platformState=1706796480277
+=======
+platformState=1706751363720
+>>>>>>> e591e6ba807ab34931bf26dc855c1f674703c198
 quickStart=false
 tipsAndTricks=true
