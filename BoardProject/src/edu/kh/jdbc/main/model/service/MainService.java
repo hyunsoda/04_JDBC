@@ -35,14 +35,14 @@ public class MainService {
 	 * @return
 	 */
 	public int idDuplicationCheck(String memberId) throws Exception{
-		
-		Connection conn = getConnection();
+				Connection conn = getConnection();
 		
 		int result = dao.idDuplicationCheck(conn, memberId); //select하는 건데 임의로 1아니면 0으로 받도록 설정하는 것 / DML아님!
 		
 		close(conn);
 		
 		return result;
+
 	}
 
 	/** 회원 가입 서비스
